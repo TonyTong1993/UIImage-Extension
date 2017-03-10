@@ -62,17 +62,17 @@
     UIGraphicsEndImageContext();
     return newImage;
 }
--(UIImage *)imageWithText:(NSString *)text position:(CGPoint)point attributes:(NSDictionary *)attributes margin:(CGFloat)margin{
+-(UIImage *)imageWithText:(NSString *)text position:(CGPoint)point attributes:(NSDictionary *)attributes lineWidth:(CGFloat)width{
    
     if (!attributes) {
-        attributes = @{NSFontAttributeName:[UIFont fontWithName:ThimeBackFont size:14],NSForegroundColorAttributeName:[UIColor blackColor]};
+        attributes = @{NSFontAttributeName:[UIFont fontWithName:ThimeBackFont size:28],NSForegroundColorAttributeName:[UIColor blackColor]};
     }
     UIGraphicsBeginImageContextWithOptions(self.size,NO,0.0);
     //原始图片渲染
     [self drawInRect:CGRectMake(0, 0, self.size.width , self.size.height)];
-    CGFloat textX = point.x + margin*2+2;
-    CGFloat textY = point.y+ margin*2+3;
-    CGSize textSize = [text boundingRectWithSize:CGSizeMake(self.size.width-40, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:attributes context:nil].size;
+    CGFloat textX = point.x;
+    CGFloat textY = point.y;
+    CGSize textSize = [text boundingRectWithSize:CGSizeMake(width, MAXFLOAT) options:NSStringDrawingUsesLineFragmentOrigin attributes:attributes context:nil].size;
     CGRect react = CGRectMake(textX, textY, textSize.width, textSize.height);
     [text drawInRect:react withAttributes:attributes];
     // 从上下文中取得制作完毕的UIImage对象

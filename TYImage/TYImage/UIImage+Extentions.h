@@ -26,7 +26,7 @@
  @param point 位置信息
  @return 带有文字的图片
  */
--(UIImage *)imageWithText:(NSString *)text position:(CGPoint)point attributes:(NSDictionary *)attributes margin:(CGFloat)margin;
+-(UIImage *)imageWithText:(NSString *)text position:(CGPoint)point attributes:(NSDictionary *)attributes lineWidth:(CGFloat)width;
 
 /**
  添加图片到目标图片上
